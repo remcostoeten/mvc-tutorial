@@ -8,7 +8,7 @@ class Bootstrap {
             $url[0] = "Index";
         }
 
-        print_r($url);
+//        print_r($url);
 
         $file = 'controllers/' . $url[0] . '.php';
         if (file_exists($file)) {

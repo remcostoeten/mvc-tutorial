@@ -8,10 +8,10 @@ class Bootstrap {
             $url[0] = "Index";
         }
 
-//        print_r($url);
+        //print_r($url);
 
         $file = 'controllers/' . $url[0] . '.php';
-        if (file_exists($file)) {
+        if (file_exists($file) && !isset($url[3])) {
             require $file;
         } else {
             require 'controllers/errormsg.php';
@@ -21,7 +21,6 @@ class Bootstrap {
 
         $controller = new $url[0];
 
-
         if (isset($url[2])) {
             $controller->{$url[1]}($url[2]);
         } else {
@@ -29,7 +28,5 @@ class Bootstrap {
                 $controller->{$url[1]}();
             }
         }
-
-
     }
 }
